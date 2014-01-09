@@ -12,3 +12,9 @@ Then,
 ```
 $ python app.py
 ```
+
+Or try also GUI (require wxPython)
+```
+$ python ptunes.py
+```
+
