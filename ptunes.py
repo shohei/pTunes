@@ -117,6 +117,8 @@ class MyCollector(Thread):
 class MyApp(wx.App):
     def OnInit(self):
         frame = MyFrame(None, -1, 'pTunes')
+        menubar = wx.MenuBar()
+        frame.SetMenuBar(menubar)
         frame.Show(True)
         frame.Centre()
         return True
