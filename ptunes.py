@@ -14,9 +14,9 @@ class MyFrame(wx.Frame):
         vbox = wx.BoxSizer(wx.VERTICAL)
 
         hbox0 = wx.BoxSizer(wx.HORIZONTAL)
-        pImage = wx.Image('pebble.png').Scale(100, 100)
-        iImage = wx.Image('itunes.png').Scale(100, 100)
-        aImage = wx.Image('arrow.png').Scale(30, 30)
+        pImage = wx.Image('images/pebble.png').Scale(100, 100)
+        iImage = wx.Image('images/itunes.png').Scale(100, 100)
+        aImage = wx.Image('images/arrow.png').Scale(30, 30)
         self.pBitmap = pImage.ConvertToBitmap()
         self.aBitmap = aImage.ConvertToBitmap()
         self.iBitmap = iImage.ConvertToBitmap()
