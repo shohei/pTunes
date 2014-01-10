@@ -2,7 +2,8 @@ pTunes
 =============
 pTunes is a software to control iTunes via Pebble
 
-### How to pair your Pebble to Mac
+## Before use
+Pair your Pebble to Mac
 
 ![bluetooth preference](photos/bluetooth_pref.png)
 
@@ -10,19 +11,11 @@ pTunes is a software to control iTunes via Pebble
 
 ![not connected](photos/not_connected.png)
 
+## How to use
+Open ptunes.app under dist folder.
 
-Change XXXX below to your Pebble ID
-```
-fin = open("/dev/tty.PebbleXXXX-SerialPortSe")
-```
+Input your pebble ID (for example, 9DA4 in my case)
+And push "Connect" button.
+![bluetooth preference](photos/howtouse.png)
 
-Then,
-```
-$ python app.py
-```
-
-Or try also GUI (require wxPython)
-```
-$ python ptunes.py
-```
-
+Finally you can control iTunes via Music application preinstalled in your Pebble.
