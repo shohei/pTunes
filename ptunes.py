@@ -4,7 +4,7 @@ import wx
 import os
 import sys,traceback
 from threading import Thread
-
+import time 
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, id, title):
@@ -42,14 +42,15 @@ class MyFrame(wx.Frame):
 
         self.count = 0
         self.commands = { \
-            "play" : 'osascript playMusic.scpt', \
-            "pause" : 'osascript pauseMusic.scpt', \
-            "stop" : 'osascript stopMusic.scpt', \
-            "up": 'osascript upVolume.scpt', \
-            "down" : 'osascript downVolume.scpt', \
-            "next" : 'osascript nextTrack.scpt', \
-            "back" : 'osascript prevTrack.scpt', \
+            "play" : 'osascript scpt/playMusic.scpt', \
+            "pause" : 'osascript scpt/pauseMusic.scpt', \
+            "stop" : 'osascript scpt/stopMusic.scpt', \
+            "up": 'osascript scpt/upVolume.scpt', \
+            "down" : 'osascript scpt/downVolume.scpt', \
+            "next" : 'osascript scpt/nextTrack.scpt', \
+            "back" : 'osascript scpt/prevTrack.scpt', \
             }
+        self.disconnect_flag = False 
         
     def togglePlay(self):
         if self.count == 0:
@@ -83,7 +84,10 @@ class MyFrame(wx.Frame):
         print "try to disconnect..."
         
         try:
-            self.collector_thread._Thread__delete()
+            #self.collector_thread._Thread__delete()
+            self.disconnect_flag = True 
+            while self.collector_thread.is_alive():
+                time.sleep(0.1)
             self.fin.close()
             print "pebble disconnected"
             self.statusLabel.SetLabel("Pebble disconnected") 
@@ -112,7 +116,8 @@ class MyCollector(Thread):
             elif code == 4:
                 print "<< Previous Track"
                 os.system(self.collect_from.commands['back'])
- 
+            if self.collect_from.disconnect_flag:
+                break 
 
 class MyApp(wx.App):
     def OnInit(self):

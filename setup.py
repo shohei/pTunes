@@ -8,7 +8,7 @@ Usage:
 from setuptools import setup
 
 APP = ['ptunes.py']
-DATA_FILES = ['--iconfile',('images',['/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/pebble.png', '/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/itunes.png','/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/arrow.png'])]
+DATA_FILES = ['--iconfile',('images',['/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/pebble.png', '/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/itunes.png','/Users/shohei/Dropbox/Codes/python/pebble_itunes/images/arrow.png']),('scpt',['/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/playMusic.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/pauseMusic.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/nextTrack.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/prevTrack.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/stopMusic.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/downVolume.scpt','/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/upVolume.scpt'])]
 OPTIONS = {'argv_emulation': True,
  'iconfile': '/Users/shohei/Dropbox/Codes/python/pebble_itunes/pebble.icns'}
 
