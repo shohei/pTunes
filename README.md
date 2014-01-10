@@ -1,7 +1,8 @@
 pTunes
 =============
+pTunes is a software to control iTunes via Pebble
 
-### How to pair your pebble to Mac
+### How to pair your Pebble to Mac
 
 ![bluetooth preference](photos/bluetooth_pref.png)
 
