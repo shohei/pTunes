@@ -16,6 +16,7 @@ Open ptunes.app under dist folder.
 
 Input your pebble ID (for example, 9DA4 in my case)
 And push "Connect" button.
-![bluetooth preference](photos/howtouse.png)
+
+![howtouse](photos/howtouse.png)
 
 Finally you can control iTunes via Music application preinstalled in your Pebble.
