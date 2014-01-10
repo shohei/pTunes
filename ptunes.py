@@ -28,6 +28,7 @@ class MyFrame(wx.Frame):
         hbox1.Add(wx.Button(self, 1, "Connect"),1,wx.ALL|wx.EXPAND,5) 
         hbox1.Add(wx.Button(self, 2, "Disconnect"),1,wx.ALL|wx.EXPAND,5)
 
+
         hbox2 = wx.BoxSizer(wx.HORIZONTAL)
         self.statusLabel = wx.StaticText(self, 3, "Status: ") 
         hbox2.Add(self.statusLabel,1,wx.ALL|wx.EXPAND,35) 
