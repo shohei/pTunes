@@ -14,8 +14,8 @@ Pair your Pebble to Mac
 ## How to use
 Open ptunes.app under dist folder.
 
-Input your pebble ID (for example, 9DA4 in my case)
-And push "Connect" button.
+Input your pebble ID (for example, 9DA4 in my case), 
+and push "Connect" button.
 
 ![howtouse](photos/howtouse.png)
 
