@@ -1,7 +1,14 @@
-pebble_itunes
+pTunes
 =============
 
-Python console application for controlling iTunes via Pebble
+### How to pair your pebble to Mac
+
+![bluetooth preference](photos/bluetooth_pref.png)
+
+![pair](photos/pair.png)
+
+![not connected](photos/not_connected.png)
+
 
 Change XXXX below to your Pebble ID
 ```
