@@ -1,1 +1,3 @@
-/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/prevTrack.scpt
+tell application "iTunes"
+	back track
+end tell

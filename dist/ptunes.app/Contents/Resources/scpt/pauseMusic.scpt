@@ -1,1 +1,2 @@
-/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/pauseMusic.scpt
+tell application "iTunes" to pause
+

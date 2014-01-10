@@ -1,1 +1,3 @@
-/Users/shohei/Dropbox/Codes/python/pebble_itunes/scpt/nextTrack.scpt
+tell application "iTunes"
+	next track
+end tell
