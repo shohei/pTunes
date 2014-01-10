@@ -1,13 +1,13 @@
 import os
 
 commands = { \
-    "play" : 'osascript playMusic.scpt', \
-    "pause" : 'osascript pauseMusic.scpt', \
-    "stop" : 'osascript stopMusic.scpt', \
-    "up": 'osascript upVolume.scpt', \
-    "down" : 'osascript downVolume.scpt', \
-    "next" : 'osascript nextTrack.scpt', \
-    "back" : 'osascript prevTrack.scpt', \
+    "play" : 'osascript ../scpt/playMusic.scpt', \
+    "pause" : 'osascript ../scpt/pauseMusic.scpt', \
+    "stop" : 'osascript ../scpt/stopMusic.scpt', \
+    "up": 'osascript ../scpt/upVolume.scpt', \
+    "down" : 'osascript ../scpt/downVolume.scpt', \
+    "next" : 'osascript ../scpt/nextTrack.scpt', \
+    "back" : 'osascript ../scpt/prevTrack.scpt', \
     }
 
 class Status:

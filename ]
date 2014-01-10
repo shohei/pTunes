@@ -74,13 +74,14 @@ class MyFrame(wx.Frame):
  
     def connect(self,event):
         print "try to connect..." 
-        self.pebbleID = self.textCtrl.GevValue()
+        self.pebbleID = self.textCtrl.GetValue()
+        print "/dev/tty.Pebble"+self.pebbleID+"-SerialPortSe"
         if self.pebbleID == "":
             print "No ID defined"
             self.statusLabel.SetLabel("No ID defined")
             return
         try: 
-            self.fin = open("/dev/tty.Pebble9DA4-SerialPortSe")
+            self.fin = open("/dev/tty.Pebble"+self.pebbleID+"-SerialPortSe")
             print "pebble connected"
             self.statusLabel.SetLabel("Connected to Pebble") 
 
@@ -96,23 +97,11 @@ class MyFrame(wx.Frame):
  
     def disconnect(self,event):
         print "try to disconnect..."
-        
-        try:
-            #self.collector_thread._Thread__delete()
-            self.disconnect_flag = True 
-            while self.collector_thread.is_alive():
-                time.sleep(0.1)
-            self.fin.close()
-            print "pebble disconnected"
-            self.disconnect_flag = False
-            self.statusLabel.SetLabel("Pebble disconnected") 
-        except:
-            exc_type, exc_value, exc_traceback = sys.exc_info()
-            traceback.print_exception(exc_type, exc_value, exc_traceback,
-                                                  limit=2, file=sys.stdout)
-            print "something weird happend"
-            self.statusLabel.SetLabel("Something weired :(") 
- 
+        self.statusLabel.SetLabel("Press any key to disconnect") 
+
+        self.collector_thread2 = MyCollector2(self)
+        self.collector_thread2.start()
+         
 
 class MyCollector(Thread):
     def __init__(self, collect_from):
@@ -122,26 +111,43 @@ class MyCollector(Thread):
     def run(self):
         while True:
             get = self.collect_from.fin.read(1)
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
-            self.statusLabel.SetLabel("No ID defined")
             code = ord(get)
-            if code == 5:
+            if code == 4:
                 print ">> Next Track"
                 os.system(self.collect_from.commands['next'])
-                self.statusLabel.SetLabel(">> Next Track") 
+                self.collect_from.statusLabel.SetLabel(">> Next Track") 
             elif code == 8:
                 self.collect_from.togglePlay()
-            elif code == 4:
+            elif code == 5:
                 print "<< Previous Track"
                 os.system(self.collect_from.commands['back'])
-                self.statusLabel.SetLabel(">> Previous Track") 
+                self.collect_from.statusLabel.SetLabel(">> Previous Track") 
             if self.collect_from.disconnect_flag:
                 break 
+
+class MyCollector2(Thread):
+    def __init__(self, collect_from):
+        Thread.__init__(self) # must be called !
+        self.collect_from = collect_from
+
+    def run(self):
+        try:
+            #self.collector_thread._Thread__delete()
+            self.collect_from.disconnect_flag = True 
+            while self.collect_from.collector_thread.is_alive():
+                time.sleep(0.1)
+            self.fin.close()
+            print "pebble disconnected"
+            self.collect_from.disconnect_flag = False
+            self.collect_from.statusLabel.SetLabel("Pebble disconnected") 
+        except:
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            traceback.print_exception(exc_type, exc_value, exc_traceback,
+                                                  limit=2, file=sys.stdout)
+            print "something weird happend"
+            self.collect_from.statusLabel.SetLabel("Something weired :(") 
+
+
 
 class MyApp(wx.App):
     def OnInit(self):
