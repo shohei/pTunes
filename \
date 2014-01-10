@@ -74,13 +74,13 @@ class MyFrame(wx.Frame):
  
     def connect(self,event):
         print "try to connect..." 
-        self.pebbleID = self.textCtrl.GetValue()
+        self.pebbleID = self.textCtrl.GevValue()
         if self.pebbleID == "":
             print "No ID defined"
             self.statusLabel.SetLabel("No ID defined")
             return
         try: 
-            self.fin = open("/dev/tty.Pebble"+self.pebbleID+"-SerialPortSe")
+            self.fin = open("/dev/tty.Pebble9DA4-SerialPortSe")
             print "pebble connected"
             self.statusLabel.SetLabel("Connected to Pebble") 
 
@@ -122,18 +122,24 @@ class MyCollector(Thread):
     def run(self):
         while True:
             get = self.collect_from.fin.read(1)
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
+            self.statusLabel.SetLabel("No ID defined")
             code = ord(get)
-            print code
             if code == 5:
                 print ">> Next Track"
                 os.system(self.collect_from.commands['next'])
-                self.collect_from.statusLabel.SetLabel(">> Next Track") 
+                self.statusLabel.SetLabel(">> Next Track") 
             elif code == 8:
                 self.collect_from.togglePlay()
             elif code == 4:
                 print "<< Previous Track"
                 os.system(self.collect_from.commands['back'])
-                self.collect_from.statusLabel.SetLabel(">> Previous Track") 
+                self.statusLabel.SetLabel(">> Previous Track") 
             if self.collect_from.disconnect_flag:
                 break 
 
