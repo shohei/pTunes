@@ -12,7 +12,7 @@ Pair your Pebble to Mac
 ![not connected](photos/not_connected.png)
 
 ## How to use
-Open ptunes.app under dist folder.
+Unzip pTunes.zip and open ptunes.app inside.
 
 Input your pebble ID (for example, 9DA4 in my case), 
 and push "Connect" button.
