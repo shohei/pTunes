@@ -20,3 +20,8 @@ and push "Connect" button.
 ![howtouse](photos/howtouse.png)
 
 Finally you can control iTunes via Music application preinstalled in your Pebble.
+
+## Build
+```
+$ sudo python setup.py py2app
+```

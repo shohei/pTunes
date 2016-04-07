@@ -10,8 +10,8 @@ from setuptools import setup
 APP = ['ptunes.py']
 DATA_FILES = []
 OPTIONS = {'argv_emulation': True,
- 'iconfile': '/Users/shohei/.ghq/github.com/shohei/pTunes/icon.icns',
-'plist': {'CFBundleShortVersionString':'0.1.0',}
+ 'iconfile': '/Users/shohei/.ghq/github.com/shohei/pTunes/pebble.icns',
+'plist': {'CFBundleShortVersionString':'1.0.0',}
 }
 
 setup(
