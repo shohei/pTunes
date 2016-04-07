@@ -6,11 +6,14 @@ Usage:
 """
 
 from setuptools import setup
+from glob import glob
 
 APP = ['ptunes.py']
-DATA_FILES = []
+DATA_FILES = [
+       ('images', glob('images/*.png')), 
+        ]
 OPTIONS = {'argv_emulation': True,
- 'iconfile': '/Users/shohei/.ghq/github.com/shohei/pTunes/pebble.icns',
+ 'iconfile': 'pebble.icns',
 'plist': {'CFBundleShortVersionString':'1.0.0',}
 }
 
